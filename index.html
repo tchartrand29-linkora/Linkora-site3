@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Linkora | Curated Amazon Finds</title>
+  <style>
+    :root{
+      --bg:#0d0d0d;
+      --text:#f2f2f2;
+      --accent:#00bfa6;
+      --card:#1a1a1a;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Poppins,Arial,Helvetica,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    header{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:1rem 1.5rem;background:#111;position:sticky;top:0;z-index:20;
+    }
+    .logo{display:flex;align-items:center;gap:.5rem}
+    .logo img{width:36px;height:36px;border-radius:50%}
+    nav{display:flex;overflow-x:auto;gap:.7rem}
+    nav button{
+      background:none;border:none;color:var(--text);font-weight:500;
+      padding:.5rem 1rem;border-radius:20px;cursor:pointer;white-space:nowrap;
+      transition:background .3s;
+    }
+    nav button.active,nav button:hover{background:var(--accent);color:#000}
+    section{display:none;opacity:0;transition:opacity .4s ease;max-width:1100px;margin:auto;padding:2rem 1rem}
+    section.active{display:block;opacity:1}
+    h2{color:var(--accent);margin-bottom:1rem;text-align:center;font-size:1.6rem}
+    p.center{text-align:center;color:#ccc;margin-bottom:2rem;font-size:.95rem}
+    .grid{
+      display:grid;gap:1rem;
+      grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    }
+    .card{
+      background:var(--card);border-radius:15px;overflow:hidden;
+      transition:transform .3s,box-shadow .3s;
+    }
+    .card:hover{transform:translateY(-4px);box-shadow:0 0 10px #00bfa666}
+    .card img{width:100%;height:150px;object-fit:cover}
+    .card-content{padding:.8rem}
+    .card-content h4{font-size:.95rem;margin-bottom:.4rem}
+    .card-content p{color:#aaa;font-size:.8rem;margin-bottom:.6rem}
+    .card-content a{
+      display:inline-block;background:var(--accent);color:#000;
+      padding:.4rem .8rem;border-radius:20px;font-size:.8rem;text-decoration:none;font-weight:600;
+    }
+    footer{text-align:center;color:#777;font-size:.8rem;padding:2rem 1rem;background:#111}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="https://via.placeholder.com/64x64/00bfa6/000000?text=L" alt="L">
+    <div>
+      <h1 style="font-size:1.1rem;color:var(--accent)">Linkora</h1>
+      <small style="color:#ccc;font-size:.75rem;">Curated Amazon Finds for Everyday Life</small>
+    </div>
+  </div>
+  <nav id="tabs">
+    <button class="active" data-tab="home">Home</button>
+    <button data-tab="tech">Tech</button>
+    <button data-tab="homek">Home & Kitchen</button>
+    <button data-tab="beauty">Beauty</button>
+    <button data-tab="fitness">Fitness</button>
+    <button data-tab="fashion">Fashion</button>
+    <button data-tab="outdoor">Outdoor</button>
+    <button data-tab="pets">Pets</button>
+    <button data-tab="blog">Blog</button>
+  </nav>
+</header>
+
+<!-- Sections -->
+<section id="home" class="active">
+  <h2>Discover What Everyone’s Buying</h2>
+  <p class="center">Trending best-sellers and must-have finds across every category.</p>
+  <div class="grid">
+    <div class="card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"><div class="card-content"><h4>Wireless Earbuds</h4><p>Noise-cancelling and 40h battery life.</p><a href="#">Check on Amazon</a></div></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"><div class="card-content"><h4>Smart LED Bulb</h4><p>Color-changing, voice-controlled lights.</p><a href="#">Check on Amazon</a></div></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1"><div class="card-content"><h4>Face Mask Set</h4><p>Hydrating and soothing skincare essential.</p><a href="#">Check on Amazon</a></div></div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Linkora — All rights reserved.<br>
+  As an Amazon Associate, Linkora earns from qualifying purchases.
+</footer>
+
+<script>
+  const buttons=document.querySelectorAll('nav button');
+  const sections=document.querySelectorAll('section');
+  buttons.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      buttons.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const id=btn.dataset.tab;
+      sections.forEach(s=>{
+        s.classList.remove('active');
+        if(s.id===id) setTimeout(()=>s.classList.add('active'),100);
+      });
+    });
+  });
+</script>
+</body>
+</html>
