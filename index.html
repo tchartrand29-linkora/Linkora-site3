@@ -1,112 +1,187 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Linkora | Curated Amazon Finds</title>
-  <style>
-    :root{
-      --bg:#0d0d0d;
-      --text:#f2f2f2;
-      --accent:#00bfa6;
-      --card:#1a1a1a;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:Poppins,Arial,Helvetica,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.5;
-    }
-    header{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:1rem 1.5rem;background:#111;position:sticky;top:0;z-index:20;
-    }
-    .logo{display:flex;align-items:center;gap:.5rem}
-    .logo img{width:36px;height:36px;border-radius:50%}
-    nav{display:flex;overflow-x:auto;gap:.7rem}
-    nav button{
-      background:none;border:none;color:var(--text);font-weight:500;
-      padding:.5rem 1rem;border-radius:20px;cursor:pointer;white-space:nowrap;
-      transition:background .3s;
-    }
-    nav button.active,nav button:hover{background:var(--accent);color:#000}
-    section{display:none;opacity:0;transition:opacity .4s ease;max-width:1100px;margin:auto;padding:2rem 1rem}
-    section.active{display:block;opacity:1}
-    h2{color:var(--accent);margin-bottom:1rem;text-align:center;font-size:1.6rem}
-    p.center{text-align:center;color:#ccc;margin-bottom:2rem;font-size:.95rem}
-    .grid{
-      display:grid;gap:1rem;
-      grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    }
-    .card{
-      background:var(--card);border-radius:15px;overflow:hidden;
-      transition:transform .3s,box-shadow .3s;
-    }
-    .card:hover{transform:translateY(-4px);box-shadow:0 0 10px #00bfa666}
-    .card img{width:100%;height:150px;object-fit:cover}
-    .card-content{padding:.8rem}
-    .card-content h4{font-size:.95rem;margin-bottom:.4rem}
-    .card-content p{color:#aaa;font-size:.8rem;margin-bottom:.6rem}
-    .card-content a{
-      display:inline-block;background:var(--accent);color:#000;
-      padding:.4rem .8rem;border-radius:20px;font-size:.8rem;text-decoration:none;font-weight:600;
-    }
-    footer{text-align:center;color:#777;font-size:.8rem;padding:2rem 1rem;background:#111}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linkora | Curated Amazon Finds</title>
+<style>
+:root{--bg:#0d0d0d;--text:#f2f2f2;--accent:#00bfa6;--card:#1a1a1a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;}
+header{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;background:#111;position:sticky;top:0;z-index:20;}
+.logo{display:flex;align-items:center;gap:.5rem;}
+.logo img{width:36px;height:36px;border-radius:50%;}
+nav{display:flex;overflow-x:auto;gap:.7rem;}
+nav button{background:none;border:none;color:var(--text);font-weight:500;padding:.5rem 1rem;border-radius:20px;cursor:pointer;white-space:nowrap;transition:background .3s;}
+nav button.active, nav button:hover{background:var(--accent);color:#000;}
+section{display:none;opacity:0;transition:opacity .4s ease;max-width:1100px;margin:auto;padding:2rem 1rem;}
+section.active{display:block;opacity:1;}
+h2{color:var(--accent);margin-bottom:1rem;text-align:center;font-size:1.6rem;}
+p.center{text-align:center;color:#ccc;margin-bottom:2rem;font-size:.95rem;}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
+.card{background:var(--card);border-radius:15px;overflow:hidden;transition:transform .3s,box-shadow .3s;}
+.card:hover{transform:translateY(-4px);box-shadow:0 0 10px #00bfa666;}
+.card img{width:100%;height:150px;object-fit:cover;}
+.card-content{padding:.8rem;}
+.card-content h4{font-size:.95rem;margin-bottom:.4rem;}
+.card-content p{color:#aaa;font-size:.8rem;margin-bottom:.6rem;}
+.card-content a{display:inline-block;background:var(--accent);color:#000;padding:.4rem .8rem;border-radius:20px;font-size:.8rem;text-decoration:none;font-weight:600;}
+.card-content a:hover{background:#00d4b9;}
+footer{text-align:center;color:#777;font-size:.8rem;padding:2rem 1rem;background:#111;}
+</style>
 </head>
 <body>
+
 <header>
-  <div class="logo">
-    <img src="https://via.placeholder.com/64x64/00bfa6/000000?text=L" alt="L">
-    <div>
-      <h1 style="font-size:1.1rem;color:var(--accent)">Linkora</h1>
-      <small style="color:#ccc;font-size:.75rem;">Curated Amazon Finds for Everyday Life</small>
-    </div>
-  </div>
-  <nav id="tabs">
-    <button class="active" data-tab="home">Home</button>
-    <button data-tab="tech">Tech</button>
-    <button data-tab="homek">Home & Kitchen</button>
-    <button data-tab="beauty">Beauty</button>
-    <button data-tab="fitness">Fitness</button>
-    <button data-tab="fashion">Fashion</button>
-    <button data-tab="outdoor">Outdoor</button>
-    <button data-tab="pets">Pets</button>
-    <button data-tab="blog">Blog</button>
-  </nav>
+<div class="logo">
+<img src="https://via.placeholder.com/64x64/00bfa6/000000?text=L" alt="L">
+<div><h1 style="font-size:1.1rem;color:var(--accent)">Linkora</h1>
+<small style="color:#ccc;font-size:.75rem;">Curated Amazon Finds for Everyday Life</small></div>
+</div>
+<nav id="tabs">
+<button class="active" data-tab="home">Home</button>
+<button data-tab="tech">Tech</button>
+<button data-tab="homek">Home & Kitchen</button>
+<button data-tab="beauty">Beauty</button>
+<button data-tab="fitness">Fitness</button>
+<button data-tab="fashion">Fashion</button>
+<button data-tab="outdoor">Outdoor</button>
+<button data-tab="pets">Pets</button>
+<button data-tab="blog">Blog</button>
+</nav>
 </header>
 
-<!-- Sections -->
+<!-- Home -->
 <section id="home" class="active">
-  <h2>Discover What Everyone’s Buying</h2>
-  <p class="center">Trending best-sellers and must-have finds across every category.</p>
-  <div class="grid">
-    <div class="card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"><div class="card-content"><h4>Wireless Earbuds</h4><p>Noise-cancelling and 40h battery life.</p><a href="#">Check on Amazon</a></div></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"><div class="card-content"><h4>Smart LED Bulb</h4><p>Color-changing, voice-controlled lights.</p><a href="#">Check on Amazon</a></div></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1"><div class="card-content"><h4>Face Mask Set</h4><p>Hydrating and soothing skincare essential.</p><a href="#">Check on Amazon</a></div></div>
-  </div>
+<h2>Discover What Everyone’s Buying</h2>
+<p class="center">Trending best-sellers and must-have finds across every category.</p>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"><div class="card-content"><h4>Product 1</h4><p>Description here.</p><a href="https://amzn.to/4qHXpvm" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"><div class="card-content"><h4>Product 2</h4><p>Description here.</p><a href="https://amzn.to/3LCliEg" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1"><div class="card-content"><h4>Product 3</h4><p>Description here.</p><a href="https://amzn.to/47AMwmk" target="_blank">Check on Amazon</a></div></div>
+</div>
 </section>
 
+<!-- Tech -->
+<section id="tech">
+<h2>Tech & Gadgets</h2>
+<p class="center">Smart, practical tech tools you’ll actually use.</p>
+<div class="grid">
+<div class="card"><img src="https://m.media-amazon.com/images/I/61+Q6Rh3OQL._AC_SL1500_.jpg"><div class="card-content"><h4>Product 1</h4><p>Description here.</p><a href="https://amzn.to/4qHXpvm" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/71qW97dn5cL._AC_SL1500_.jpg"><div class="card-content"><h4>Product 2</h4><p>Description here.</p><a href="https://amzn.to/3X6r0kk" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/71Qbkz1Xz9L._AC_SL1500_.jpg"><div class="card-content"><h4>Product 3</h4><p>Description here.</p><a href="https://amzn.to/4hyZsNQ" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/71NKJvZAgdL._AC_SL1500_.jpg"><div class="card-content"><h4>Product 4</h4><p>Description here.</p><a href="https://amzn.to/4oMNtie" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/71V6+oA2ueL._AC_SL1500_.jpg"><div class="card-content"><h4>Product 5</h4><p>Description here.</p><a href="https://amzn.to/4qByoBT" target="_blank">Check on Amazon</a></div></div>
+</div>
+</section>
+
+<!-- Home & Kitchen -->
+<section id="homek">
+<h2>Home & Kitchen</h2>
+<p class="center">Beautifully functional essentials for modern homes.</p>
+<div class="grid">
+<div class="card"><img src="https://m.media-amazon.com/images/I/71NKJvZAgdL._AC_SL1500_.jpg"><div class="card-content"><h4>Product 1</h4><p>Description here.</p><a href="https://amzn.to/3LCliEg" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/71V6+oA2ueL._AC_SL1500_.jpg"><div class="card-content"><h4>Product 2</h4><p>Description here.</p><a href="https://amzn.to/4oKEHB8" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/81V1+R0sAUL._AC_SL1500_.jpg"><div class="card-content"><h4>Product 3</h4><p>Description here.</p><a href="https://amzn.to/4hFWAz5" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/71JrN6zOaFL._AC_SL1500_.jpg"><div class="card-content"><h4>Product 4</h4><p>Description here.</p><a href="https://amzn.to/49rAv52" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/81V1+R0sAUL._AC_SL1500_.jpg"><div class="card-content"><h4>Product 5</h4><p>Description here.</p><a href="https://amzn.to/434VczY” target="_blank">Check on Amazon</a></div></div>
+</div>
+</section>
+<!-- Beauty Section -->
+<section id="beauty">
+<h2>Beauty & Skincare</h2>
+<p class="center">Glow up with these trending favorites.</p>
+<div class="grid">
+<div class="card"><img src="https://m.media-amazon.com/images/I/61l6p9xZ8gL._AC_SL1500_.jpg"><div class="card-content"><h4>Product 1</h4><p>Description here.</p><a href="https://amzn.to/47AMwmk" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/3LixXMD.jpg"><div class="card-content"><h4>Product 2</h4><p>Description here.</p><a href="https://amzn.to/3LixXMD" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/47uZ1zC.jpg"><div class="card-content"><h4>Product 3</h4><p>Description here.</p><a href="https://amzn.to/47uZ1zC" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/3X7LmcU.jpg"><div class="card-content"><h4>Product 4</h4><p>Description here.</p><a href="https://amzn.to/3X7LmcU" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/4oQBjoI.jpg"><div class="card-content"><h4>Product 5</h4><p>Description here.</p><a href="https://amzn.to/4oQBjoI" target="_blank">Check on Amazon</a></div></div>
+</div>
+</section>
+
+<!-- Fitness Section -->
+<section id="fitness">
+<h2>Fitness & Health</h2>
+<p class="center">Everything you need for home workouts.</p>
+<div class="grid">
+<div class="card"><img src="https://m.media-amazon.com/images/I/4okunAg.jpg"><div class="card-content"><h4>Product 1</h4><p>Description here.</p><a href="https://amzn.to/4okunAg" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/43aDFGp.jpg"><div class="card-content"><h4>Product 2</h4><p>Description here.</p><a href="https://amzn.to/43aDFGp" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/434xvaT.jpg"><div class="card-content"><h4>Product 3</h4><p>Description here.</p><a href="https://amzn.to/434xva" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/47PJQ5j.jpg"><div class="card-content"><h4>Product 4</h4><p>Description here.</p><a href="https://amzn.to/47PJQ5j" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/47zi4sK.jpg"><div class="card-content"><h4>Product 5</h4><p>Description here.</p><a href="https://amzn.to/47zi4sK" target="_blank">Check on Amazon</a></div></div>
+</div>
+</section>
+
+<!-- Fashion Section -->
+<section id="fashion">
+<h2>Fashion & Accessories</h2>
+<p class="center">Style meets comfort with these picks.</p>
+<div class="grid">
+<div class="card"><img src="https://m.media-amazon.com/images/I/4ntPfnv.jpg"><div class="card-content"><h4>Product 1</h4><p>Description here.</p><a href="https://amzn.to/4ntPfnv" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/3WAYbwf.jpg"><div class="card-content"><h4>Product 2</h4><p>Description here.</p><a href="https://amzn.to/3WAYbwf" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/4ny5hfZ.jpg"><div class="card-content"><h4>Product 3</h4><p>Description here.</p><a href="https://amzn.to/4ny5hfZ" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/4oFo2PE.jpg"><div class="card-content"><h4>Product 4</h4><p>Description here.</p><a href="https://amzn.to/4oFo2PE" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/4oRFD7c.jpg"><div class="card-content"><h4>Product 5</h4><p>Description here.</p><a href="https://amzn.to/4oRFD7c" target="_blank">Check on Amazon</a></div></div>
+</div>
+</section>
+<!-- Outdoor Section -->
+<section id="outdoor">
+<h2>Outdoor & Travel</h2>
+<p class="center">Gear for your next adventure.</p>
+<div class="grid">
+<div class="card"><img src="https://m.media-amazon.com/images/I/49tycyf.jpg"><div class="card-content"><h4>Product 1</h4><p>Description here.</p><a href="https://amzn.to/49tycyf" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/3JfgFiV.jpg"><div class="card-content"><h4>Product 2</h4><p>Description here.</p><a href="https://amzn.to/3JfgFiV" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/4nBc7kJ.jpg"><div class="card-content"><h4>Product 3</h4><p>Description here.</p><a href="https://amzn.to/4nBc7kJ" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/3Lgo6qC.jpg"><div class="card-content"><h4>Product 4</h4><p>Description here.</p><a href="https://amzn.to/3Lgo6qC" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/43NsxiV.jpg"><div class="card-content"><h4>Product 5</h4><p>Description here.</p><a href="https://amzn.to/43NsxiV" target="_blank">Check on Amazon</a></div></div>
+</div>
+</section>
+
+<!-- Pets Section -->
+<section id="pets">
+<h2>Pets & Lifestyle</h2>
+<p class="center">Because pets deserve the best too.</p>
+<div class="grid">
+<div class="card"><img src="https://m.media-amazon.com/images/I/4qALAqr.jpg"><div class="card-content"><h4>Product 1</h4><p>Description here.</p><a href="https://amzn.to/4qALAqr" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/436AAqS.jpg"><div class="card-content"><h4>Product 2</h4><p>Description here.</p><a href="https://amzn.to/436AAqS" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/48SxnyU.jpg"><div class="card-content"><h4>Product 3</h4><p>Description here.</p><a href="https://amzn.to/48SxnyU" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/47u9Sd3.jpg"><div class="card-content"><h4>Product 4</h4><p>Description here.</p><a href="https://amzn.to/47u9Sd3" target="_blank">Check on Amazon</a></div></div>
+<div class="card"><img src="https://m.media-amazon.com/images/I/3LnfoXv.jpg"><div class="card-content"><h4>Product 5</h4><p>Description here.</p><a href="https://amzn.to/3LnfoXv" target="_blank">Check on Amazon</a></div></div>
+</div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog">
+<h2>From the Blog</h2>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1606813902915-3fbb64d1d8a2"><div class="card-content"><h4>10 Amazon Finds You’ll Actually Use</h4><p>Practical and stylish picks for 2025.</p><a href="#" target="_blank">Read More</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1581291519195-ef11498d1cf5"><div class="card-content"><h4>Best Tech Under $50</h4><p>Affordable gadgets that look premium.</p><a href="#" target="_blank">Read More</a></div></div>
+</div>
+</section>
+
+<!-- Footer -->
 <footer>
   © 2025 Linkora — All rights reserved.<br>
   As an Amazon Associate, Linkora earns from qualifying purchases.
 </footer>
 
+<!-- Tab Switching Script -->
 <script>
-  const buttons=document.querySelectorAll('nav button');
-  const sections=document.querySelectorAll('section');
-  buttons.forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      buttons.forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      const id=btn.dataset.tab;
-      sections.forEach(s=>{
-        s.classList.remove('active');
-        if(s.id===id) setTimeout(()=>s.classList.add('active'),100);
-      });
+const buttons=document.querySelectorAll('nav button');
+const sections=document.querySelectorAll('section');
+buttons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const id=btn.dataset.tab;
+    sections.forEach(s=>{
+      s.classList.remove('active');
+      if(s.id===id) setTimeout(()=>s.classList.add('active'),100);
     });
   });
+});
 </script>
 </body>
 </html>
